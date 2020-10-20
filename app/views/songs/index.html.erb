@@ -1,7 +1,8 @@
 <h2 class="title is-2">Top Soptify Songs From 2010 - 2019</h2>
 
-<ol class="ml-4">
+<ul class="ml-4">
   <% @songs.each do |song| %>
     <li><%= link_to song.title, song %> By <%= song.artist.name %></li>
   <% end %>
-</ol>
+</ul>
+<%= paginate @songs %>

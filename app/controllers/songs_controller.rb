@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.includes(:artist, :genre).order("popularity DESC")
+    @songs = Song.includes(:artist, :genre).order("popularity DESC").page(params[:page])
   end
 
   def show
