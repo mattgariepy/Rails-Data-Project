@@ -1,3 +1,5 @@
+<% content_for(:html_title) { @artist.name }%>
+
 <h1 class="title is-3"><%= @artist.name%></h1>
 
 <p>This artist has produced <%= @artist.songs.count %> top rated songs during the years 2010 - 2019</p>

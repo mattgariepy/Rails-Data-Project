@@ -1,3 +1,5 @@
+<% content_for(:html_title) { @song.title }%>
+
 <h1><%= @song.title %></h1>
 <h1>Artist: <%= link_to @song.artist.name, @song.artist %></h1>
 <h1>Genre: <%= link_to @song.genre.name, @song.genre %></h1>
