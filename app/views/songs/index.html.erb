@@ -1,2 +1,10 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<%# <h1>Songs#index</h1>
+<p>Find me in app/views/songs/index.html.erb</p> %>
+
+<h2 class="title is-2">Top Soptify Songs From 2010 - 2019</h2>
+
+<ol class="ml-4">
+  <% @songs.each do |song| %>
+    <li><%= link_to song.title, song %> By <%= song.artist.name %></li>
+  <% end %>
+</ol>

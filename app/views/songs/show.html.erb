@@ -1,2 +1,14 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<h1><%= @song.title %></h1>
+<h1>Artist: <%= link_to @song.artist.name, @song.artist %></h1>
+<h1>Genre: <%= link_to @song.genre.name, @song.genre %></h1>
+<h1>Year: <%= @song.year %></h1>
+<h1>Duration: <%= @song.duration %></h1>
+<h1>Popularity: <%= @song.popularity %></h1>
+<h1>Beats Per Minute: <%= @song.bpm %></h1>
+<h1>Energy: <%= @song.energy %></h1>
+<h1>Danceability: <%= @song.danceability %></h1>
+<h1>Loudness: <%= @song.loudness %></h1>
+<h1>Liveness: <%= @song.liveness %></h1>
+<h1>Valence: <%= @song.valence %></h1>
+<h1>Acousticness: <%= @song.acousticness %></h1>
+<h1>Speechness: <%= @song.speechness %></h1>

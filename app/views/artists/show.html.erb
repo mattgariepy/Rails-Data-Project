@@ -1,2 +1,9 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1 class="title is-3"><%= @artist.name%></h1>
+
+<p>This artist has produced <%= @artist.songs.count %> top rated songs during the years 2010 - 2019</p>
+
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><%= link_to song.title, song%></li>
+  <% end %>
+</ul>

@@ -1,2 +1,9 @@
-<h1>Genres#show</h1>
-<p>Find me in app/views/genres/show.html.erb</p>
+<h1 class="title is-3"><%= @genre.name%></h1>
+
+<p>There are <%= @genre.songs.count %> songs in this genre</p>
+
+<ul>
+  <% @genre.songs.each do |song| %>
+    <li><%= link_to song.title, song%></li>
+  <% end %>
+</ul>
