@@ -1,8 +1,35 @@
 <h2 class="title is-2">Top Soptify Songs From 2010 - 2019</h2>
 
-<ul class="ml-4">
-  <% @songs.each do |song| %>
-    <li><%= link_to song.title, song %> By <%= song.artist.name %></li>
-  <% end %>
-</ul>
+<table class="table is-fullwidth is-bordered is-hoverable">
+  <thead>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Artist">Artist</abbr></th>
+      <th><abbr title="Genre">Genre</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Artist">Artist</abbr></th>
+      <th><abbr title="Genre">Genre</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song %></td>
+        <td><%= song.artist.name %></td>
+        <td><%= song.genre.name %></td>
+        <td><%= song.duration %></td>
+        <td><%= song.popularity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
 <%= paginate @songs %>

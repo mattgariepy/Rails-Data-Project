@@ -2,12 +2,35 @@
 
 <h1 class="title is-3"><%= @artist.name%></h1>
 
-<p>This artist has produced <%= @artist.songs.count %> top rated songs during the years 2010 - 2019</p>
+<p>This artist has produced <%= @songs.count %> top rated songs during the years 2010 - 2019</p>
 
-<ul>
-  <% @artist.songs.each do |song| %>
-    <li><%= link_to song.title, song%></li>
-  <% end %>
-</ul>
-
+<table class="table is-fullwidth is-bordered is-hoverable">
+  <thead>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Genre">Genre</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Genre">Genre</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song %></td>
+        <td><%= song.genre.name %></td>
+        <td><%= song.duration %></td>
+        <td><%= song.popularity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<%= paginate @songs %>
 <%= link_to 'Back', :back %>

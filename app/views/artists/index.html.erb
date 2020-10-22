@@ -1,8 +1,27 @@
 <h2 class="title is-2">Top Soptify Artists From 2010 - 2019</h2>
 
-<ul>
-  <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, artist %></li>
-  <% end %>
-</ul>
+<% @artists.each do |artist| %>
+  <div class="card mb-4">
+    <div class="card-content">
+      <p class="title is-3">
+        <%= link_to artist.name, artist %>
+      </p>
+      <p class="subtitle">
+        This artist has produced <%= artist.song_count %> top rated songs during the years 2010 - 2019!
+      </p>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          Top Rated Song: <%= artist.songs.order("popularity DESC").first.title %>
+        </span>
+      </p>
+      <p class="card-footer-item">
+        <span>
+          Preferred Genre: <%= artist.songs.order("popularity DESC").first.genre.name %>
+        </span>
+      </p>
+    </footer>
+  </div>
+<% end %>
 <%= paginate @artists %>

@@ -10,5 +10,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+
+    @songs = Song.includes(:artist, :genre).where(genre_id: params[:id]).page(params[:page])
   end
 end

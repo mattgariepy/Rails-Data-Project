@@ -1,18 +1,58 @@
 <% content_for(:html_title) { @song.title }%>
 
-<h1><%= @song.title %></h1>
-<h1>Artist: <%= link_to @song.artist.name, @song.artist %></h1>
-<h1>Genre: <%= link_to @song.genre.name, @song.genre %></h1>
-<h1>Year: <%= @song.year %></h1>
-<h1>Duration: <%= @song.duration %></h1>
-<h1>Popularity: <%= @song.popularity %></h1>
-<h1>Beats Per Minute: <%= @song.bpm %></h1>
-<h1>Energy: <%= @song.energy %></h1>
-<h1>Danceability: <%= @song.danceability %></h1>
-<h1>Loudness: <%= @song.loudness %></h1>
-<h1>Liveness: <%= @song.liveness %></h1>
-<h1>Valence: <%= @song.valence %></h1>
-<h1>Acousticness: <%= @song.acousticness %></h1>
-<h1>Speechness: <%= @song.speechness %></h1>
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      <%= @song.title %>
+    </p>
+    <p class="subtitle mt-2 mb-2">
+      <strong>Artist: </strong><%= link_to @song.artist.name, @song.artist %>
+    </p>
+    <p class="subtitle mb-2">
+      <strong>Genre: </strong><%= link_to @song.genre.name, @song.genre %>
+    </p>
+    <p class="subtitle mb-2">
+      <strong>Year Released: </strong><%= @song.year %>
+    </p>
+    <p class="subtitle mb-2">
+      <strong>Duration(Seconds): </strong><%= @song.duration %>
+    </p>
+    <p class="subtitle mb-2">
+      <strong>Beats-Per-Minute: </strong><%= @song.bpm %>
+    </p>
+    <p class="subtitle mb-2">
+      <strong>Loudness: </strong><%= @song.loudness %>
+    </p>
+  </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <strong class="mr-2">Energy: </strong><progress class="progress is-info" value="<%= @song.energy %>" max=100>Energy</progress>
+    </p>
+    <p class="card-footer-item">
+      <strong class="mr-2">Danceability: </strong><progress class="progress is-info" value="<%= @song.danceability %>" max=100>Danceability</progress>
+    </p>
+  </footer>
+    <footer class="card-footer">
+    <p class="card-footer-item">
+      <strong class="mr-2">Liveness: </strong><progress class="progress is-info" value="<%= @song.liveness %>" max=100>Liveness</progress>
+    </p>
+    <p class="card-footer-item">
+      <strong class="mr-2">Valence: </strong><progress class="progress is-info" value="<%= @song.valence %>" max=100>Valence</progress>
+    </p>
+  </footer>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <strong class="mr-2">Acousticness: </strong><progress class="progress is-info" value="<%= @song.acousticness %>" max=100>Acousticness</progress>
+    </p>
+    <p class="card-footer-item">
+      <strong class="mr-2">Speechness: </strong><progress class="progress is-info" value="<%= @song.speechness %>" max=50>Speechness</progress>
+    </p>
+  </footer>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <strong class="mr-2">Popularity: </strong><progress class="progress is-info" value="<%= @song.popularity %>" max=100>Popularity</progress>
+    </p>
+  </footer>
+</div>
 
 <%= link_to 'Back', :back %>

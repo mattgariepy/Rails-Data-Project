@@ -1,9 +1,27 @@
 <h2 class="title is-2">Top Soptify Genres From 2010 - 2019</h2>
 
-<ul>
-  <% @genres.each do |genre| %>
-    <li><%= link_to genre.name, genre %></li>
-  <% end %>
-</ul>
-
+<% @genres.each do |genre| %>
+  <div class="card mb-4">
+    <div class="card-content">
+      <p class="title is-3">
+        <%= link_to genre.name, genre %>
+      </p>
+      <p class="subtitle">
+        <%= genre.song_count %> top rated songs during the years 2010 - 2019 belong to this genre!
+      </p>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          Top Rated Song: <%= genre.songs.order("popularity DESC").first.title %>
+        </span>
+      </p>
+      <p class="card-footer-item">
+        <span>
+          Top Rated Song's Artist: <%= genre.songs.order("popularity DESC").first.artist.name %>
+        </span>
+      </p>
+    </footer>
+  </div>
+<% end %>
 <%= paginate @genres %>

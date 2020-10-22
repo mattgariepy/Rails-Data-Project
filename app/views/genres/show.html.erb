@@ -4,10 +4,33 @@
 
 <p>There are <%= @genre.songs.count %> songs in this genre</p>
 
-<ul>
-  <% @genre.songs.each do |song| %>
-    <li><%= link_to song.title, song%></li>
-  <% end %>
-</ul>
-
+<table class="table is-fullwidth is-bordered is-hoverable">
+  <thead>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Artist">Artist</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Title">Title</abbr></th>
+      <th><abbr title="Artist">Artist</abbr></th>
+      <th><abbr title="Duration">Duration(Seconds)</abbr></th>
+      <th><abbr title="Popularity">Popularity</abbr></th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song %></td>
+        <td><%= song.artist.name %></td>
+        <td><%= song.duration %></td>
+        <td><%= song.popularity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<%= paginate @songs %>
 <%= link_to 'Back', :back %>
