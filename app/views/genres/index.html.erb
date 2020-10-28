@@ -13,12 +13,12 @@
     <footer class="card-footer">
       <p class="card-footer-item">
         <span>
-          Top Rated Song: <%= genre.songs.order("popularity DESC").first.title %>
+          <strong>Top Rated Song: <%= link_to genre.songs.order("popularity DESC").first.title, genre.songs.order("popularity DESC").first %></strong>
         </span>
       </p>
       <p class="card-footer-item">
         <span>
-          Top Rated Song's Artist: <%= genre.songs.order("popularity DESC").first.artist.name %>
+          <strong>Top Rated Song's Artist: <%= link_to genre.songs.order("popularity DESC").first.artist.name, genre.songs.order("popularity DESC").first.artist%></strong>
         </span>
       </p>
     </footer>

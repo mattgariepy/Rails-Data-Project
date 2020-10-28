@@ -15,7 +15,7 @@ songs = CSV.parse(csv_data, headers: true)
 songs.each do |m|
   artist = Artist.find_or_create_by(name: m['artist'])
   genre = Genre.find_or_create_by(name: m['top genre'])
-
+  puts artist.id
   if artist && artist.valid? && genre && genre.valid?
     genreId = Genre.find_by name: m['top genre']
     song = artist.songs.create(
